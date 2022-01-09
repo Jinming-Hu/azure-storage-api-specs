@@ -794,7 +794,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob container."
               },
               "ETag": {
                 "type": "string",
@@ -2969,7 +2970,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob."
               },
               "x-ms-or-policy-id": {
                 "x-ms-client-name": "ObjectReplicationPolicyId",
@@ -3218,7 +3220,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob."
               },
               "x-ms-or-policy-id": {
                 "x-ms-client-name": "ObjectReplicationPolicyId",
@@ -3544,7 +3547,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob."
               },
               "x-ms-or-policy-id": {
                 "x-ms-client-name": "ObjectReplicationPolicyId",
@@ -8723,7 +8727,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob."
               },
               "Content-Length": {
                 "type": "integer",
@@ -8934,7 +8939,8 @@
               "x-ms-meta": {
                 "type": "string",
                 "x-ms-client-name": "Metadata",
-                "x-ms-header-collection-prefix": "x-ms-meta-"
+                "x-ms-header-collection-prefix": "x-ms-meta-",
+                "description": "A set of name-value pair associated with this blob."
               },
               "Content-Length": {
                 "type": "integer",
@@ -9407,7 +9413,8 @@
       "x-ms-enum": {
         "name": "CopyStatusType",
         "modelAsString": false
-      }
+      },
+      "description": "Status of the copy operation."
     },
     "LeaseDuration": {
       "type": "string",
@@ -9418,7 +9425,8 @@
       "x-ms-enum": {
         "name": "LeaseDurationType",
         "modelAsString": false
-      }
+      },
+      "description": "When a blob is leased, specifies whether the lease is of infinite or fixed duration."
     },
     "LeaseState": {
       "type": "string",
@@ -9432,7 +9440,8 @@
       "x-ms-enum": {
         "name": "LeaseStateType",
         "modelAsString": false
-      }
+      },
+      "description": "The current lease state of the blob."
     },
     "LeaseStatus": {
       "type": "string",
@@ -9443,7 +9452,8 @@
       "x-ms-enum": {
         "name": "LeaseStatusType",
         "modelAsString": false
-      }
+      },
+      "description": "The current lease status of the blob."
     },
     "StorageError": {
       "type": "object",
@@ -9524,7 +9534,8 @@
       "x-ms-enum": {
         "name": "ArchiveStatus",
         "modelAsString": true
-      }
+      },
+      "description": "For blob storage LRS accounts, valid values are rehydrate-pending-to-hot/rehydrate-pending-to-cool. If the blob is being rehydrated and is not complete then this value indicates that rehydrate is pending and also tells the destination tier."
     },
     "BlobItemInternal": {
       "xml": {
@@ -9540,19 +9551,24 @@
       ],
       "properties": {
         "Name": {
-          "type": "string"
+          "type": "string",
+          "description": "Blob name."
         },
         "Deleted": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this blob was deleted."
         },
         "Snapshot": {
-          "type": "string"
+          "type": "string",
+          "description": "A string value that uniquely identifies a blob snapshot."
         },
         "VersionId": {
-          "type": "string"
+          "type": "string",
+          "description": "A string value that uniquely identifies a blob version."
         },
         "IsCurrentVersion": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates if this is the current version of the blob."
         },
         "Properties": {
           "$ref": "#/definitions/BlobPropertiesInternal"
@@ -9581,15 +9597,18 @@
       "properties": {
         "Creation-Time": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "The date and time at which the blob was created."
         },
         "Last-Modified": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "The date and time the blob was last modified."
         },
         "Etag": {
           "type": "string",
-          "format": "etag"
+          "format": "etag",
+          "description": "The ETag contains a value that you can use to perform operations conditionally. If the request version is 2011-08-18 or newer, the ETag value will be in quotes."
         },
         "Content-Length": {
           "type": "integer",
@@ -9618,7 +9637,8 @@
         "x-ms-blob-sequence-number": {
           "x-ms-client-name": "blobSequenceNumber",
           "type": "integer",
-          "format": "int64"
+          "format": "int64",
+          "description": "The current sequence number for a page blob."
         },
         "BlobType": {
           "type": "string",
@@ -9630,7 +9650,8 @@
           "x-ms-enum": {
             "name": "BlobType",
             "modelAsString": false
-          }
+          },
+          "description": "Type of the blob."
         },
         "LeaseStatus": {
           "$ref": "#/definitions/LeaseStatus"
@@ -9642,51 +9663,63 @@
           "$ref": "#/definitions/LeaseDuration"
         },
         "CopyId": {
-          "type": "string"
+          "type": "string",
+          "description": "String identifier for this copy operation. Use with Get Blob Properties to check the status of this copy operation, or pass to Abort Copy Blob to abort a pending copy."
         },
         "CopyStatus": {
           "$ref": "#/definitions/CopyStatus"
         },
         "CopySource": {
-          "type": "string"
+          "type": "string",
+          "description": "URL up to 2 KB in length that specifies the source blob or file used in the last attempted Copy Blob operation where this blob was the destination blob. This header does not appear if this blob has never been the destination in a Copy Blob operation, or if this blob has been modified after a concluded Copy Blob operation using Set Blob Properties, Put Blob, or Put Block List."
         },
         "CopyProgress": {
-          "type": "string"
+          "type": "string",
+          "description": "Contains the number of bytes copied and the total bytes in the source in the last attempted Copy Blob operation where this blob was the destination blob. Can show between 0 and Content-Length bytes copied. This header does not appear if this blob has never been the destination in a Copy Blob operation, or if this blob has been modified after a concluded Copy Blob operation using Set Blob Properties, Put Blob, or Put Block List."
         },
         "CopyCompletionTime": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "Conclusion time of the last attempted Copy Blob operation where this blob was the destination blob. This value can specify the time of a completed, aborted, or failed copy attempt. This header does not appear if a copy is pending, if this blob has never been the destination in a Copy Blob operation, or if this blob has been modified after a concluded Copy Blob operation using Set Blob Properties, Put Blob, or Put Block List."
         },
         "CopyStatusDescription": {
-          "type": "string"
+          "type": "string",
+          "description": "Only appears when x-ms-copy-status is failed or pending. Describes the cause of the last fatal or non-fatal copy operation failure. This header does not appear if this blob has never been the destination in a Copy Blob operation, or if this blob has been modified after a concluded Copy Blob operation using Set Blob Properties, Put Blob, or Put Block List."
         },
         "ServerEncrypted": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "The value of this header is set to true if the blob data and application metadata are completely encrypted using the specified algorithm. Otherwise, the value is set to false (when the blob is unencrypted, or if only parts of the blob/application metadata are encrypted)."
         },
         "IncrementalCopy": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Included if the blob is incremental copy blob."
         },
         "DestinationSnapshot": {
-          "type": "string"
+          "type": "string",
+          "description": "Included if the blob is incremental copy blob or incremental copy snapshot, if x-ms-copy-status is success. Snapshot time of the last successful incremental copy snapshot for this blob."
         },
         "DeletedTime": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "Data and time at which this blob was deleted. Only valid when this blob was deleted."
         },
         "RemainingRetentionDays": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Remaining days before this blob will be permanantely deleted. Only valid when this blob was deleted."
         },
         "AccessTier": {
           "$ref": "#/definitions/AccessTier"
         },
         "AccessTierInferred": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "True if the access tier is not explicitly set on the blob."
         },
         "ArchiveStatus": {
           "$ref": "#/definitions/ArchiveStatus"
         },
         "CustomerProvidedKeySha256": {
-          "type": "string"
+          "type": "string",
+          "description": "SHA-256 hash of the encryption key."
         },
         "EncryptionScope": {
           "type": "string",
@@ -9694,19 +9727,23 @@
         },
         "AccessTierChangeTime": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "The time the tier was changed on the object. This is only returned if the tier on the block blob was ever set."
         },
         "TagCount": {
-          "type": "integer"
+          "type": "integer",
+          "description": "The number of tags associated with the blob."
         },
         "Expiry-Time": {
           "x-ms-client-name": "ExpiresOn",
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "The time this blob will expire."
         },
         "Sealed": {
           "x-ms-client-name": "IsSealed",
-          "type": "boolean"
+          "type": "boolean",
+          "description": "If this blob has been sealed."
         },
         "RehydratePriority": {
           "$ref": "#/definitions/RehydratePriority"
@@ -9714,7 +9751,8 @@
         "LastAccessTime": {
           "x-ms-client-name": "LastAccessedOn",
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "UTC date/time value generated by the service that indicates the time at which the blob was last read or written to."
         }
       }
     },
@@ -9983,13 +10021,16 @@
       "description": "An Azure Storage container",
       "properties": {
         "Name": {
-          "type": "string"
+          "type": "string",
+          "description": "Blob container name"
         },
         "Deleted": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether this container was deleted."
         },
         "Version": {
-          "type": "string"
+          "type": "string",
+          "description": "Version ID of a deleted container."
         },
         "Properties": {
           "$ref": "#/definitions/ContainerProperties"
@@ -10009,11 +10050,13 @@
       "properties": {
         "Last-Modified": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "Returns the date and time the container was last modified. Any operation that modifies the blob, including an update of the blob's metadata or properties, changes the last-modified time of the blob."
         },
         "Etag": {
           "type": "string",
-          "format": "etag"
+          "format": "etag",
+          "description": "The ETag contains a value that you can use to perform operations conditionally. If the request version is 2011-08-18 or newer, the ETag value will be in quotes."
         },
         "LeaseStatus": {
           "$ref": "#/definitions/LeaseStatus"
@@ -10028,24 +10071,30 @@
           "$ref": "#/definitions/PublicAccessType"
         },
         "HasImmutabilityPolicy": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether the container has an immutability policy set on it."
         },
         "HasLegalHold": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Indicates whether the container has a legal hold."
         },
         "DefaultEncryptionScope": {
-          "type": "string"
+          "type": "string",
+          "description": "The default encryption scope for the container."
         },
         "DenyEncryptionScopeOverride": {
           "type": "boolean",
-          "x-ms-client-name": "PreventEncryptionScopeOverride"
+          "x-ms-client-name": "PreventEncryptionScopeOverride",
+          "description": "Indicates whether the container's default encryption scope can be overriden."
         },
         "DeletedTime": {
           "type": "string",
-          "format": "date-time-rfc1123"
+          "format": "date-time-rfc1123",
+          "description": "Data and time at which this container was deleted. Only valid when this container was deleted."
         },
         "RemainingRetentionDays": {
-          "type": "integer"
+          "type": "integer",
+          "description": "Remaining days before this container will be permanantely deleted. Only valid when this container was deleted."
         }
       }
     },
@@ -10375,13 +10424,16 @@
       ],
       "properties": {
         "Name": {
-          "type": "string"
+          "type": "string",
+          "description": "Blob name."
         },
         "ContainerName": {
-          "type": "string"
+          "type": "string",
+          "description": "Blob container name."
         },
         "TagValue": {
-          "type": "string"
+          "type": "string",
+          "description": "Matching tags."
         }
       }
     },
